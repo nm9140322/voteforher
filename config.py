@@ -10,7 +10,6 @@ pjdir = os.path.abspath(os.path.dirname(__file__))
 def create_sqlite_uri(db_name):
     return "sqlite:///" + os.path.join(pjdir, db_name)
 
-
 class BaseConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False # True會追蹤各種改變的信號而消耗額外的記憶體
     SECRET_KEY = '\t>\xf2;\x89\x9d4e\xd1\x89\x8c\x9e\xf9>\xd02"2i.\x83\xf7\x97\x84' # 金鑰
