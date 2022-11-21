@@ -10,8 +10,7 @@ class FormRegister(FlaskForm):
     ])
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder':  '請輸入公司信箱'}, validators=[
         validators.DataRequired(),
-        validators.Length(5, 100),
-        validators.Email()
+        validators.Length(5, 100)
     ])
 
     vote = BooleanField('已投票')
@@ -23,8 +22,7 @@ class FormRegister(FlaskForm):
 class FormLogin(FlaskForm):
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder': '請輸入您的公司信箱'}, validators=[
         validators.DataRequired(),
-        validators.Length(5, 100),
-        validators.Email() # 需要安裝額外套件：pip install wtforms[email]
+        validators.Length(5, 100)
     ])
 
     submit = SubmitField('投票去 👉', render_kw={'class':'btn btn-outline-secondary'})

@@ -35,8 +35,6 @@ def register():
 
             flash('登錄成功')
             return redirect('/member/register')
-        elif user ==True:
-            flash('信箱重複')
         else:
             flash('信箱輸入有誤')
     return render_template('register.html', form=form, totaluser=totaluser, voteuser=voteuser)
