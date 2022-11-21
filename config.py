@@ -9,6 +9,7 @@ from datetime import timedelta
 pjdir = os.path.abspath(os.path.dirname(__file__))
 def create_sqlite_uri(db_name):
     return "sqlite:///" + os.path.join(pjdir, db_name)
+DATABASE_URI = "postgres://evqspvzoibbyph:0ea42790b514f2dee5d1414ed82ef6551fa5057f50002f04bc764ce15cd7a423@ec2-54-86-214-124.compute-1.amazonaws.com:5432/dd7qq3kai8fuk7"
 
 class BaseConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False # True會追蹤各種改變的信號而消耗額外的記憶體
