@@ -24,19 +24,19 @@ def register():
     form = FormRegister(vote = False)
     if form.validate_on_submit():
         user = UserRegister.query.filter_by(email=form.email.data).first()
-        if user ==False:
-            user = UserRegister( # 實作使用者類別並且賦值
-                username = form.username.data,
-                email = form.email.data,
-                vote = form.vote.data
-                )
+        if user:
+            flash('信箱重複')
+        else:
+            user = UserRegister(
+            username = form.username.data,
+            email = form.email.data,
+            vote = form.vote.data
+            )
             db.session.add(user)
             db.session.commit()
-
-            flash('登錄成功')
+            flash('成功登錄')
             return redirect('/member/register')
-        else:
-            flash('信箱輸入有誤')
+
     return render_template('register.html', form=form, totaluser=totaluser, voteuser=voteuser)
 
 # 登入投票
@@ -75,8 +75,6 @@ def vote():
         db.session.commit()
 
         return redirect('/member/logout')
-    else:
-        flash("投票過程有問題，停止交易！")
     return render_template('vote.html', form=form, totaluser=totaluser, voteuser=voteuser)
 
 

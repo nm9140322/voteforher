@@ -6,11 +6,10 @@ from wtforms import StringField, SubmitField, validators, EmailField, Validation
 # 註冊登錄用的form
 class FormRegister(FlaskForm):
     username = StringField('暱稱', render_kw={'class':'searchtext', 'placeholder': '暱稱'}, validators=[
-        validators.DataRequired(),
+        validators.DataRequired()
     ])
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder':  '請輸入公司信箱'}, validators=[
-        validators.DataRequired(),
-        validators.Length(5, 100)
+        validators.DataRequired()
     ])
 
     vote = BooleanField('已投票')
@@ -21,8 +20,7 @@ class FormRegister(FlaskForm):
 # 登入投票 (以email為主要登入帳號)
 class FormLogin(FlaskForm):
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder': '請輸入您的公司信箱'}, validators=[
-        validators.DataRequired(),
-        validators.Length(5, 100)
+        validators.DataRequired()
     ])
 
     submit = SubmitField('投票去 👉', render_kw={'class':'btn btn-outline-secondary'})
