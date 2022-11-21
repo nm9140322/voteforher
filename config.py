@@ -29,7 +29,7 @@ class TestingConfig(BaseConfig): # 測試環境
 
 
 class ProductionConfig(BaseConfig): # 正式環境
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
     # SQLALCHEMY_DATABASE_URI = create_sqlite_uri('app\\static\\database\\voteforher_login.sqlite')
 
 # 環境配置更換時
