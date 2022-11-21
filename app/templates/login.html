@@ -1,0 +1,76 @@
+﻿{% extends "base.html" %}
+
+{% block title %}登入投票{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <!-- Flash訊息區 -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- Button trigger modal -->
+    <div class="mainsection">
+        <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#loginBackdrop">
+            登入投票
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {% from "_userform.html" import render_field %}
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginBackdropLabel">投票人身分核對</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>此資料僅作為核對身分使用，以避免外部人士或重複投票之情事，本次選舉採不計名投票，請放心票選。</p>
+                        {{ render_field(form.email) }}
+                    </div>
+                    <div class="modal-footer">
+                        {{ form.submit }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- <div>
+        <br>
+        <h1 class="subtitle">登入投票</h1>
+        <br>
+        <br>
+        <hr class="hrline">
+    </div>
+
+    {% from "_userform.html" import render_field %}
+    <form method="POST" enctype="multipart/form-data" >
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <br>
+        <div class='register_user'>
+            {{ render_field(form.email) }}
+        </div>
+        <hr class="hrline">
+        {{ form.submit }}
+    </form> -->
+</section>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

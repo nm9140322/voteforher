@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}銘謝賜票{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+
+<section>
+<!-- Flash訊息區 -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+      {% for message in messages %}
+
+      <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">{{ message }}</h4>
+            <p>您這一票所代表的意義對茜渝來說十分重大，若您投了願意，容茜渝銘謝賜票並感念於心，若您投了不願意，表示茜渝還有許多需要努力的地方，茜渝會將您的鞭策深記於心並持續進步！</p>
+            <hr>
+            <p class="mb-0">無論如何，真心感謝您這一票，因為您的參與，目前投票同意率為 {{ Yespercent }} % ！</p>
+          </div>
+      {% endfor %}
+{% endif %}
+{% endwith %}
+</section>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

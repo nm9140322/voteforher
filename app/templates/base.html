@@ -1,0 +1,74 @@
+﻿<!-- 選舉公報頁面基本版型 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--頁籤標題區-->
+        <title>{% block title %} VoteforHer {% endblock %}</title>
+
+        <!-- 基本配備區 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--避免隨便縮放-->
+        <meta charset="utf-8"> <!--辨識字符-->
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='style.css') }}"> <!--CSS樣式主檔案-->
+        <link rel="icon" href="{{ url_for('static', filename='vote.ico') }}"> <!--透過flask更改頁籤上的ICON，必須要是ICON檔-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!--JQoery功能-->
+        {% block link %}{% endblock %}
+
+    </head>
+
+    <body id="homepagestyle">
+        <!-- 候選人介紹 -->
+        <header>
+            <table class="table table-bordered border-danger align-middle text-center">
+                <thead>
+                    <tr>
+                        <th class='votetitle pinkcolor' colspan="9">第一屆復旦電競試用期留任選舉公報</th>
+                    </tr>
+                    <tr>
+                        <th colspan="9">第一屆復旦電競試用期留任選舉，經法定台灣<span class="pinkcolor">2022年11月21日（星期一）上午10點起至24點止</span>舉行投票。<br>茲依據茜渝自訂選舉法第0條規定，將候選人填報之個人資料刊登如下，如有不實，由候選人自行負責：</th>
+                    </tr>
+                    <tr class="lineheight">
+                        <th>號次</th>
+                        <th>職別</th>
+                        <th>相片</th>
+                        <th>姓名</th>
+                        <th>出生年月日</th>
+                        <th>性別</th>
+                        <th>居住地</th>
+                        <th>登記方式</th>
+                        <th>經歷</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="pinkcolor fontweight">1</td>
+                        <td class="lineheight">網頁工程師</td>
+                        <td><img class='selfpic' src="../static/selfpic.jpg"></td>
+                        <td class="lineheight">黃茜渝</td>
+                        <td>1994年<br>1月<br>6日</td>
+                        <td>女</td>
+                        <td class="lineheight">桃園市</td>
+                        <td class="lineheight">自薦</td>
+                        <td>過往擔任食品研發後如此如此這般這般地，總之就決定朝向轉職成工程師之路邁進，自學至今掐指一算也半個年頭過去，在復旦電競的日子如梭，不一會兒便到了試用期結束必須歷經考核試煉的時日。如今這個考核是如此荊棘滿途，而最終考核決定權已交予各位投票人手中，望各位高抬貴手給予本人挺過試用期並正式留下來和大家一起打拼的機會，謝謝！</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <marquee>（已投票/總投票人：{{voteuser}} / {{totaluser}} ）💪投下您的一票支持茜渝留下來和復旦電競鄉親一同打拼💪</marquee>
+        </header>
+        <br>
+
+        <!-- 頁面主內容區 -->
+        <main class="mainsection">
+            {% block main %}
+            <p>頁面主內容</p>
+            {% endblock %}
+        </main>
+
+
+        {% block script %}{% endblock %}
+    </body>
+</html>
+

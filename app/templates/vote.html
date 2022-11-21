@@ -1,0 +1,61 @@
+﻿{% extends "base.html" %}
+
+{% block title %} 投給她！{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <!-- Flash訊息區 -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- Button trigger modal -->
+    <div class="mainsection">
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            投給她！
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {% from "_userform.html" import render_field %}
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">您是否願意讓茜渝留下：</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% for YorNs in form.YorN %}
+                        <tr>
+                            <td>{{ YorNs }}</td>
+                            <td>{{ YorNs.label }}</td>
+                        </tr>
+                        <br>
+                        <br>
+                        {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                        {{ form.submit }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

@@ -1,0 +1,47 @@
+﻿{% extends "base.html" %}
+
+{% block title %}登錄名單{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block main %}
+
+<section>
+    <!-- Flash訊息區 -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div>
+        <br>
+        <h1 class="subtitle">登錄名單</h1>
+        <br>
+        <br>
+        <hr class="hrline">
+    </div>
+
+    {% from "_userform.html" import render_field %}
+    <!-- 實際利用Macro引入表單的區域 -->
+    <form method="POST" enctype="multipart/form-data" >
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <br>
+        <div class='register_user'>
+            {{ render_field(form.username) }}
+            {{ render_field(form.email) }}
+            {{ render_field(form.vote) }}
+        </div>
+        <hr class="hrline">
+        {{ form.submit }}
+    </form>
+</section>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

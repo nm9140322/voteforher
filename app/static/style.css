@@ -1,0 +1,76 @@
+﻿/* ↓ 整個頁面統一的style，Microsoft JhengHei是微軟正黑體 ↓ */
+#homepagestyle{
+    background-color:#f1f3f5;
+    font-family: "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif, serif;
+    color: #212529;
+    padding: 2%;
+}
+
+/* 透明漸變的線 */
+.hrline{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(46, 186, 221, 0.1), rgba(46, 186, 221, 0.8), rgba(46, 186, 221, 0.1));
+}
+
+/* 設定還沒有瀏覽過的連結 */
+a:link{
+    text-decoration:none;
+    color: inherit;
+}
+
+/* 設定已經瀏覽過的連結 */
+a:visited {
+    text-decoration:none;
+    color: inherit;
+}
+
+/* 設定滑鼠移經的連結 */
+a:hover {
+    text-decoration:none;
+    color: inherit;
+}
+
+/* 設定正在點選的連結  */
+a:active {
+    text-decoration:none;
+    color: inherit;
+}
+
+
+/* base */
+.votetitle {
+    font-size: 3rem;
+    font-weight:bolder;
+}
+
+.pinkcolor {
+    color:#c2255c;
+}
+
+.fontweight{
+    font-weight:900;
+    font-size: xx-large;
+}
+
+.lineheight{
+    line-height: 30px;
+}
+
+.selfpic {
+    width: 100px;
+}
+
+marquee {
+    color: #868e96;
+    font-size: large;
+    font-weight: 800;
+}
+
+.mainsection{
+    display: flex;
+    /* 水平置中 */
+    justify-content: center;    
+    /* 垂直置中 */
+    align-items: center;   
+}
