@@ -1,1 +1,1 @@
-web: gunicorn manager:app --log-file=-
+web gunicorn manager:app --preload --workers=1
