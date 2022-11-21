@@ -8,7 +8,7 @@ class UserRegister(UserMixin, db.Model):
     __tablename__ = 'UserRegister' # 資料表名稱
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
-    email = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False)
     vote = db.Column((db.Boolean))
 
 # 登入功能

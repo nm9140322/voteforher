@@ -10,7 +10,7 @@ class FormRegister(FlaskForm):
     ])
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder':  '請輸入公司信箱'}, validators=[
         validators.DataRequired(),
-        validators.Length(1, 50),
+        validators.Length(5, 100),
         validators.Email()
     ])
 
@@ -23,7 +23,7 @@ class FormRegister(FlaskForm):
 class FormLogin(FlaskForm):
     email = EmailField('公司信箱', render_kw={'class':'searchtext', 'placeholder': '請輸入您的公司信箱'}, validators=[
         validators.DataRequired(),
-        validators.Length(5, 30),
+        validators.Length(5, 100),
         validators.Email() # 需要安裝額外套件：pip install wtforms[email]
     ])
 
