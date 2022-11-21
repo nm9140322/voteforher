@@ -35,10 +35,10 @@ def register():
 
             flash('登錄成功')
             return redirect('/member/register')
-        else:
+        elif user ==True:
             flash('信箱重複')
-    else:
-        flash('信箱輸入有誤')
+        else:
+            flash('信箱輸入有誤')
     return render_template('register.html', form=form, totaluser=totaluser, voteuser=voteuser)
 
 # 登入投票
@@ -56,9 +56,7 @@ def login():
             else:
                 flash('您已經投下神聖的一票囉！若您未進行操作...我們中出了內鬼！！！')
         else:
-            flash('信箱不存在，請重新確認。')
-    else:
-        flash('信箱輸入有誤')
+            flash('信箱輸入有誤')
     return render_template('login.html', form=form, totaluser=totaluser, voteuser=voteuser)
 
 # 投完票直接登出
