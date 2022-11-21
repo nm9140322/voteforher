@@ -1,1 +1,1 @@
-web: gunicorn -b :$PORT manager:app --preload
+web: gunicorn -w 4 -b :$PORT manager:app
